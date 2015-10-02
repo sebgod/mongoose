@@ -172,6 +172,9 @@ typedef struct _stati64 cs_stat_t;
 #endif
 #define DIRSEP '\\'
 
+#ifdef __MINGW32__
+#include <dirent.h>
+#else
 /* POSIX opendir/closedir/readdir API for Windows. */
 struct dirent {
   char d_name[MAX_PATH];
@@ -186,6 +189,7 @@ typedef struct DIR {
 DIR *opendir(const char *name);
 int closedir(DIR *dir);
 struct dirent *readdir(DIR *dir);
+#endif /* not __MINGW32__ */
 
 #elif /* not _WIN32 */ defined(MG_CC3200)
 

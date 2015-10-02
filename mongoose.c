@@ -1128,7 +1128,7 @@ void to_wchar(const char *path, wchar_t *wbuf, size_t wbuf_len) {
 #define MG_MALLOC malloc
 #endif
 
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(__MINGW32__)
 DIR *opendir(const char *name) {
   DIR *dir = NULL;
   wchar_t wpath[MAX_PATH];
