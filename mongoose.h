@@ -40,7 +40,8 @@
 #ifndef _CRT_SECURE_NO_WARNINGS
 #define _CRT_SECURE_NO_WARNINGS /* Disable deprecation warning in VS2005+ */
 #endif
-#undef WIN32_LEAN_AND_MEAN /* Let windows.h always include winsock2.h */
+#define WIN32_LEAN_AND_MEAN
+#include <winsock2.h>        /* for WinSock2 support */
 #undef _XOPEN_SOURCE
 #define _XOPEN_SOURCE 600    /* For flockfile() on Linux */
 #define __STDC_FORMAT_MACROS /* <inttypes.h> wants this for C++ */
